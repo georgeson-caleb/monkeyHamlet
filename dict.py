@@ -11,7 +11,9 @@ def main():
    f.close()
    dict = Letter()
    for word in words:
-      print(word)
+      if word[-1] == "\n":
+         word = word[:len(word) - 1]
+      # print(word)
       curLett = dict
       ctr = 0
       length = len(word) - 1
@@ -23,7 +25,6 @@ def main():
             curLett.next[lett].word = True
 
          curLett = curLett.next[lett]
-
          ctr += 1
 
    f = open("dict_test.json", "w")
